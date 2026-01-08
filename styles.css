@@ -137,6 +137,11 @@ button:hover {
   cursor: pointer;
 }
 
+.agenda-sub-group{
+    display:flex;
+    gap: 5px;
+}
+
 
 
 @media (max-width: 600px) {

@@ -28,6 +28,8 @@ const upcomingItems = agendaItems.filter(
 );
 
 function renderItems(items) {
+  // wait half a second
+
   items.forEach(item => {
     const d = new Date(item.date);
 
@@ -44,7 +46,8 @@ function renderItems(items) {
 
     agendaContainer.insertAdjacentHTML('beforeend', `
       <div class="agenda-item">
-        <h3>${formattedDate} ${formattedTime} (${item.room})</h3>
+        <h3>${formattedDate}</h3>
+        <div class="agenda-sub-group"><p class="agenda-time">${formattedTime}</p><p>at </p><p class="agenda-location">${item.room}</p></div>
         <p class="agenda-sub-text">Open chess meeting</p>
         <p>Drop in for a casual game of chess with fellow students. All skill levels are welcome!</p>
       </div>
@@ -53,6 +56,7 @@ function renderItems(items) {
 }
 
 // Render first 5
+setTimeout(() => {}, 500);
 renderItems(upcomingItems.slice(0, MAX_ITEMS));
 
 // Add "Show all" button if needed

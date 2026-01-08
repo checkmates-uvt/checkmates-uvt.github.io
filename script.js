@@ -49,7 +49,7 @@ function renderItems(items) {
         <h3>${formattedDate}</h3>
         <div class="agenda-sub-group"><p class="agenda-time">${formattedTime}</p><p>at </p><p class="agenda-location">${item.room}</p></div>
         <p class="agenda-sub-text">Open chess meeting</p>
-        <p>Drop in for a casual game of chess with fellow students. All skill levels are welcome!</p>
+        <p class="agenda-description">Drop in for a casual game of chess with fellow students. All skill levels are welcome!</p>
       </div>
     `);
   });

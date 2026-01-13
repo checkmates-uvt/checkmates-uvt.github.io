@@ -1,36 +1,37 @@
-const agendaItems = [
-  { date: '2026-01-30T14:45', room: 'AZ17' },
-  { date: '2026-02-06T14:45', room: 'DZ10' },
-  { date: '2026-02-13T14:45', room: 'DZ10' },
-  { date: '2026-02-20T14:45', room: 'DZ10' },
-  { date: '2026-02-27T14:45', room: 'DZ10' },
-  { date: '2026-03-06T14:45', room: 'DZ7' },
-  { date: '2026-03-13T14:45', room: 'DZ10' },
-  { date: '2026-03-20T14:45', room: 'DZ7' },
-  { date: '2026-03-27T14:45', room: 'DZ10' },
-  { date: '2026-04-03T14:45', room: 'DZ10' },
-  { date: '2026-04-10T14:45', room: 'DZ8' },
-  { date: '2026-04-17T14:45', room: 'DZ8' },
-  { date: '2026-04-24T14:45', room: 'DZ8' },
-  { date: '2026-05-01T14:45', room: 'DZ8' },
-  { date: '2026-05-08T14:45', room: 'DZ6' },
-  { date: '2026-05-22T14:45', room: 'AZ17' },
-  { date: '2026-05-29T14:45', room: 'DZ8' }
-];
+console.log('Loading agenda.json...');
+fetch('/agenda.json')
+  .then(response => {
+    console.log(response)
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.json();
+  })
+  .then(data => {
+
+
+    renderItems(data);
+
+
+    agendaItems = data;
+    })
+    .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    });
+
 
 const now = new Date();
 const agendaContainer = document.getElementById('agenda-container');
 const MAX_ITEMS = 5;
 
-// Filter upcoming items once
-const upcomingItems = agendaItems.filter(
-  item => new Date(item.date) >= now
-);
 
 function renderItems(items) {
   // wait half a second
 
   items.forEach(item => {
+
+    // only render if item date is in the future
+
+    if (new Date(item.date) < now) return;
+
     const d = new Date(item.date);
 
     const formattedDate = d.toLocaleDateString('en-GB', {
@@ -58,9 +59,6 @@ function renderItems(items) {
   });
 }
 
-// Render first 5
-setTimeout(() => {}, 500);
-renderItems(upcomingItems.slice(0, MAX_ITEMS));
 
 // Add "Show all" button if needed
 if (upcomingItems.length > MAX_ITEMS) {

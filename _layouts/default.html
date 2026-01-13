@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Tilburg University Chess Club</title>
+  <meta name="description" content="UvT Checkmates is the Tilburg University official chess club. Join us for chess tournaments, casual chess games, and competitive chess.">
+  <meta name="keywords" content="Chess, UvT chess, UvT Checkmates, Tilburg University, Tilburg chess tournaments">
+  <meta name="author" content="UvT Checkmates">
+
+  <link rel="canonical" href="https://uvt-checkmates.nl/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+  <link rel="icon" type="image/svg+xml" href="/images/UVTCM-logo-blue.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+
+  {% include header.html %}
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    &copy; {{ site.time | date: "%Y" }} Tilburg University Chess Club
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

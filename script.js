@@ -1,36 +1,41 @@
-const agendaItems = [
-  { date: '2026-01-30T14:45', room: 'AZ17' },
-  { date: '2026-02-06T14:45', room: 'DZ10' },
-  { date: '2026-02-13T14:45', room: 'DZ10' },
-  { date: '2026-02-20T14:45', room: 'DZ10' },
-  { date: '2026-02-27T14:45', room: 'DZ10' },
-  { date: '2026-03-06T14:45', room: 'DZ7' },
-  { date: '2026-03-13T14:45', room: 'DZ10' },
-  { date: '2026-03-20T14:45', room: 'DZ7' },
-  { date: '2026-03-27T14:45', room: 'DZ10' },
-  { date: '2026-04-03T14:45', room: 'DZ10' },
-  { date: '2026-04-10T14:45', room: 'DZ8' },
-  { date: '2026-04-17T14:45', room: 'DZ8' },
-  { date: '2026-04-24T14:45', room: 'DZ8' },
-  { date: '2026-05-01T14:45', room: 'DZ8' },
-  { date: '2026-05-08T14:45', room: 'DZ6' },
-  { date: '2026-05-22T14:45', room: 'AZ17' },
-  { date: '2026-05-29T14:45', room: 'DZ8' }
-];
-
+console.log('Loading agenda.json...');
 const now = new Date();
 const agendaContainer = document.getElementById('agenda-container');
-const MAX_ITEMS = 5;
 
-// Filter upcoming items once
-const upcomingItems = agendaItems.filter(
-  item => new Date(item.date) >= now
-);
+fetch('/agenda.json')
+  .then(response => {
+    console.log(response)
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.json();
+  })
+  .then(data => {
 
-function renderItems(items) {
+    const future_items = data.filter(item => new Date(item.date) > now);
+
+    if (page === 'agenda'){
+      renderItems(future_items, limit=100);
+    }
+    else{
+        renderItems(future_items, limit=5);
+    }
+    console.log(data)
+    })
+    .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    agendaContainer.innerHTML = '<p>No upcoming events found</p>';
+    });
+
+
+function renderItems(items, limit) {
   // wait half a second
 
-  items.forEach(item => {
+  if (!items || items.length === 0) {
+    agendaContainer.innerHTML = '<p>No upcoming events.</p>';
+    return;
+  }
+
+  items.slice(0, limit).forEach(item => {
+
     const d = new Date(item.date);
 
     const formattedDate = d.toLocaleDateString('en-GB', {
@@ -58,23 +63,7 @@ function renderItems(items) {
   });
 }
 
-// Render first 5
-setTimeout(() => {}, 500);
-renderItems(upcomingItems.slice(0, MAX_ITEMS));
 
-// Add "Show all" button if needed
-if (upcomingItems.length > MAX_ITEMS) {
-  const button = document.createElement('button');
-  button.textContent = 'Show all';
-  button.className = 'agenda-show-all';
-
-  button.addEventListener('click', () => {
-    renderItems(upcomingItems.slice(MAX_ITEMS));
-    button.remove(); // hide button after clicking
-  });
-
-  agendaContainer.after(button);
-}
 
 function getRelativeTime(targetDate) {
   const now = new Date();

@@ -1,4 +1,7 @@
 console.log('Loading agenda.json...');
+const now = new Date();
+const agendaContainer = document.getElementById('agenda-container');
+
 fetch('/agenda.json')
   .then(response => {
     console.log(response)
@@ -7,30 +10,31 @@ fetch('/agenda.json')
   })
   .then(data => {
 
+    const future_items = data.filter(item => new Date(item.date) > now);
 
-    renderItems(data);
-
-
-    agendaItems = data;
+    if (page === 'agenda'){
+      renderItems(future_items, limit=100);
+    }
+    else{
+        renderItems(future_items, limit=5);
+    }
+    console.log(data)
     })
     .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
+    agendaContainer.innerHTML = '<p>No upcoming events found</p>';
     });
 
 
-const now = new Date();
-const agendaContainer = document.getElementById('agenda-container');
-const MAX_ITEMS = 5;
-
-
-function renderItems(items) {
+function renderItems(items, limit) {
   // wait half a second
 
-  items.forEach(item => {
+  if (!items || items.length === 0) {
+    agendaContainer.innerHTML = '<p>No upcoming events.</p>';
+    return;
+  }
 
-    // only render if item date is in the future
-
-    if (new Date(item.date) < now) return;
+  items.slice(0, limit).forEach(item => {
 
     const d = new Date(item.date);
 
@@ -60,19 +64,6 @@ function renderItems(items) {
 }
 
 
-// Add "Show all" button if needed
-if (upcomingItems.length > MAX_ITEMS) {
-  const button = document.createElement('button');
-  button.textContent = 'Show all';
-  button.className = 'agenda-show-all';
-
-  button.addEventListener('click', () => {
-    renderItems(upcomingItems.slice(MAX_ITEMS));
-    button.remove(); // hide button after clicking
-  });
-
-  agendaContainer.after(button);
-}
 
 function getRelativeTime(targetDate) {
   const now = new Date();

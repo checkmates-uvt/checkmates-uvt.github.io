@@ -2,7 +2,9 @@
 layout: default
 title: Home
 ---
-
+<script>
+    const page = 'home';
+</script>
 <div class="grid-section introduction-grid-item">
       <div>
         <h2>Here to play chess</h2>
@@ -19,6 +21,7 @@ title: Home
       <section>
         <h2>Agenda</h2>
         <div id="agenda-container"></div>
+          <button onclick="window.location.href='/agenda'" class="view-agenda-button">View Full Agenda</button>
       </section>
     </div>
     <div class="grid-section meetings-grid-item">
@@ -45,6 +48,10 @@ title: Home
         <a href="https://chat.whatsapp.com/Kb5bdWKWIEEAK9mbrJQYLF" target="_blank" rel="noopener noreferrer" class="follow-a">
           <img src="images/whatsapp-brands-solid-full.svg" alt="whatsapp Icon" class="socials-icon"/>
           <p>Whatsapp</p>
+        </a>
+          <a href="mailto:chess@uvt-checkmates.com" class="follow-a">
+          <img src="/images/envelope-regular-full.svg" alt="Email Icon" class="socials-icon"/>
+          <p>Email</p>
         </a>
 
 

@@ -1,6 +1,8 @@
 
 :root {
     --color-primary: #003061;
+    --color-gray: #777777;
+    --color-light-gray: #b4b4b4;
 }
 
 
@@ -107,9 +109,26 @@ footer {
 }
 
 .agenda-item{
-    border-top: 1px solid #818181;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    border-left: 4px solid var(--color-primary);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+#agenda-container{
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.agenda-relative-time {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+        white-space: nowrap;
+    height: fit-content;
 
 }
 
@@ -186,7 +205,23 @@ nav a:hover{
     font-weight: bold;
 }
 
+.agenda-bubble{
+    background-color: var(--color-gray);
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    padding: 2px 6px;
+    color: white;
+    height: fit-content;
+}
 
+.agenda-header{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
 
 @media (max-width: 600px) {
   main {

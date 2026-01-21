@@ -1,10 +1,8 @@
-console.log('Loading agenda.json...');
 const now = new Date();
 const agendaContainer = document.getElementById('agenda-container');
 
 fetch('/agenda.json')
   .then(response => {
-    console.log(response)
     if (!response.ok) throw new Error('Network response was not ok');
     return response.json();
   })
@@ -38,6 +36,7 @@ function renderItems(items, limit) {
 
     const d = new Date(item.date);
 
+
     const formattedDate = d.toLocaleDateString('en-GB', {
       day: 'numeric',
       month: 'long',
@@ -54,10 +53,14 @@ function renderItems(items, limit) {
 
     agendaContainer.insertAdjacentHTML('beforeend', `
       <div class="agenda-item">
-        <h3>${formattedDate} <span class="agenda-relative">(${relativeTime})</span></h3>
-        <div class="agenda-sub-group"><p class="agenda-time">${formattedTime}</p><p>at </p><p class="agenda-location">${item.room}</p></div>
-        <p class="agenda-sub-text">Open chess meeting</p>
+        <div class="agenda-header">
+          <h3>${item.title}</h3>
+          <div class="agenda-relative-time">${relativeTime}</div>
+        </div>
+        <br>
         <p class="agenda-description">Drop in for a casual game of chess with fellow students. All skill levels are welcome!</p>
+        <br>
+        <div class="agenda-sub-group"><p class="agenda-time agenda-bubble">${formattedDate} ${formattedTime} </p><p class="agenda-location agenda-bubble">${item.room}</p></div>
       </div>
     `);
   });
@@ -79,7 +82,7 @@ function getRelativeTime(targetDate) {
     return `in ${diffHours} hour${diffHours !== 1 ? 's' : ''}`;
   }
 
-  if (diffDays < 7) {
+  if (diffDays < 14) {
     return `in ${diffDays} day${diffDays !== 1 ? 's' : ''}`;
   }
 

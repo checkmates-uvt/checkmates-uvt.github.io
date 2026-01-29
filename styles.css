@@ -223,6 +223,36 @@ nav a:hover{
     gap: 10px;
 }
 
+.board-item-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.board-item-metacontainer{
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.board-image{
+    width:30%;
+    border-radius: 7px;
+}
+
+.board-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.board-meta{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+
+
 @media (max-width: 600px) {
   main {
     grid-template-columns: 1fr; /* Single column layout for phones */

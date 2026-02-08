@@ -100,16 +100,70 @@ footer {
     flex-direction: column;
     gap: 1rem;
       grid-row: span 5;
+    height: auto;
 }
 
-.introduction-grid-item{
+.images-grid-item{
     grid-column: span 2;
-  display: flex;
-  gap: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.image-slider{
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+}
+
+.slides{
+    width: 100%;
+}
+
+.image-grid-item{
+    height: auto;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-1{
+    background-image: url('images/slide5.jpg');
+}
+
+.image-2{
+    background-image: url('images/UVT checkmates tournament.jpeg');
+}
+
+.image-3{
+    background-image: url('images/slide2.jpg');
+}
+
+.image-4{
+    background-image: url('images/slide4.jpg');
+}
+
+.location-icon{
+    color: white;
+    width: 16px;
+    height: 16px;
+
+}
+
+.images-grid-item{
+    background-image: url('images/slide2.jpg');
+    min-height: 250px;
+}
+
+.tall-grid-item{
+    grid-row: span 2;
+}
+
+.slide{
+    width: 100%;
+    border-radius: 12px;
 }
 
 .agenda-item{
-    border-left: 4px solid var(--color-primary);
+    border-left: 6px solid var(--color-primary);
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding-left: 1rem;
@@ -211,9 +265,13 @@ nav a:hover{
     display: inline-block;
     margin-right: 10px;
     position: relative;
-    padding: 2px 6px;
+    padding: 2px 6px 2px 2px;
     color: white;
     height: fit-content;
+    /*vertical center*/
+    display: flex;
+    align-items: center;
+
 }
 
 .agenda-header{
@@ -256,13 +314,17 @@ nav a:hover{
 @media (max-width: 600px) {
   main {
     grid-template-columns: 1fr; /* Single column layout for phones */
+      padding: 1rem;
   }
-    .introduction-grid-item{
-        grid-column: span 1;
-        flex-direction: column;
-        align-items: center;
-    }
+    .grid-section {
+    grid-column: span 1; /* Ensure grid items stack */
+        padding: 1rem;
+  }
     .introduction-image{
         width: 100%;
+    }
+
+    .image-grid-item{
+        min-height: 200px;
     }
 }

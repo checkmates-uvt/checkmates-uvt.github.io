@@ -37,11 +37,7 @@ function renderItems(items, limit) {
     const d = new Date(item.date);
 
 
-    const formattedDate = d.toLocaleDateString('en-GB', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    });
+    const formattedDate = `${d.getDate()}-${d.getMonth() + 1}`;
 
     const formattedTime = d.toLocaleTimeString('en-GB', {
       hour: '2-digit',
@@ -60,7 +56,10 @@ function renderItems(items, limit) {
         <br>
         <p class="agenda-description">Drop in for a casual game of chess with fellow students. All skill levels are welcome!</p>
         <br>
-        <div class="agenda-sub-group"><p class="agenda-time agenda-bubble">${formattedDate} ${formattedTime} </p><p class="agenda-location agenda-bubble">${item.room}</p></div>
+        <div class="agenda-sub-group">
+          <p class="agenda-time agenda-bubble"><img src="/images/clock-solid-full.svg" alt="Location Icon" class="location-icon" />${formattedDate} ${formattedTime} </p>
+          <p class="agenda-location agenda-bubble"><img src="/images/location-dot-solid-full.svg" alt="Location Icon" class="location-icon" /> ${item.room}</p>
+        </div>
       </div>
     `);
   });

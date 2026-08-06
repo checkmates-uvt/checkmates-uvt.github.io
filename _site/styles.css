@@ -1,0 +1,382 @@
+
+:root {
+    --color-primary: #003061;
+    --color-gray: #777777;
+    --color-light-gray: #b4b4b4;
+}
+
+
+
+*{
+    margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f4f6f8;
+  color: #333;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.agenda-sub-text{
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+header {
+  background: linear-gradient(rgba(0, 48, 97, 0.8), rgba(0, 48, 97, 0.8)), url('images/Dante.jpg');
+  background-size: cover;
+  background-position: center bottom -80px;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px; /* controls when 3 columns happen */
+    box-sizing: border-box;
+  margin: 0 auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.grid-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.two-grid-item{
+    grid-column: span 2;
+    gap: 1rem;
+}
+
+.three-grid-item{
+    grid-column: span 3;
+    gap: 1rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+h2{
+  margin: 0 0 1rem 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+button:hover {
+  background: #00254d;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: #777;
+}
+
+.agenda-grid-item{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+      grid-row: span 5;
+}
+
+.images-grid-item{
+    grid-column: span 2;
+    display: flex;
+    gap: 1rem;
+}
+
+.image-slider{
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+}
+
+.slides{
+    width: 100%;
+}
+
+.image-grid-item{
+    height: auto;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-1{
+    background-image: url('images/slide5.jpg');
+}
+
+.image-2{
+    background-image: url('images/UVT checkmates tournament.jpeg');
+}
+
+.image-3{
+    background-image: url('images/slide2.jpg');
+}
+
+.image-4{
+    background-image: url('images/slide4.jpg');
+}
+
+.location-icon{
+    color: white;
+    width: 16px;
+    height: 16px;
+
+}
+
+.images-grid-item{
+    background-image: url('images/slide2.jpg');
+    min-height: 250px;
+}
+
+.tall-grid-item{
+    grid-row: span 2;
+}
+
+.wide-grid-item{
+    grid-column: span 2;
+}
+
+.slide{
+    width: 100%;
+    border-radius: 12px;
+}
+
+.agenda-item{
+    border-left: 6px solid var(--color-primary);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+#agenda-container{
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.agenda-relative-time {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+        white-space: nowrap;
+    height: fit-content;
+
+}
+
+.introduction-image{
+    width: 40%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.follow-a{
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #e0e7ff;
+    text-decoration: none;
+    color: #000;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 8px;
+    width: fit-content;
+    margin-right: 10px;
+}
+
+.follow-a:hover{
+    background-color: #c7d2fe;
+}
+
+.socials-icon{
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.agenda-show-all {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.agenda-sub-group{
+    display:flex;
+    gap: 5px;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+nav li{
+    padding: 0 20px;
+}
+
+.nav-links li + li {
+  border-left: 1px solid #ccc; /* vertical line */
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover{
+    /*bold*/
+    font-weight: bold;
+}
+
+.agenda-bubble{
+    background-color: var(--color-gray);
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    padding: 2px 6px 2px 2px;
+    color: white;
+    height: fit-content;
+    /*vertical center*/
+    display: flex;
+    align-items: center;
+
+}
+
+.agenda-header{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.board-item-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.board-item-metacontainer{
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.board-image{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: rotate(-45deg) scale(1.42);
+    transition: transform 0.3s ease;
+  /* -45deg cancels the container rotation
+     scale fills the diamond so you don't get empty corners */
+}
+
+.board-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.board-container-home{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.board-meta{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.board-image-container{
+    width: 20%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    transform: rotate(45deg);  /* turn the square into a diamond */
+    margin: 1rem;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.board-image-container-home{
+    width: 100%;
+}
+
+.board-image-container:hover{
+    transform: rotate(0deg) scale(1.3);
+}
+
+.board-image-container:hover .board-image {
+    transform: rotate(0deg);
+}
+
+.centered-text{
+    text-align: center;
+    width: 100%;
+}
+
+
+
+
+@media (max-width: 600px) {
+  main {
+    grid-template-columns: 1fr; /* Single column layout for phones */
+      padding: 1rem;
+  }
+    .grid-section {
+    grid-column: span 1; /* Ensure grid items stack */
+        padding: 1rem;
+  }
+    .introduction-image{
+        width: 100%;
+    }
+
+    .image-grid-item{
+        min-height: 200px;
+    }
+
+    .board-container-home{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .board-container-board{
+        grid-template-columns: 1fr;
+    }
+}

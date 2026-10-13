@@ -296,13 +296,9 @@ nav a:hover{
 }
 
 .board-image{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: rotate(-45deg) scale(1.42);
-    transition: transform 0.3s ease;
-  /* -45deg cancels the container rotation
-     scale fills the diamond so you don't get empty corners */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .board-container {
@@ -327,24 +323,13 @@ nav a:hover{
     width: 20%;
     aspect-ratio: 1;
     overflow: hidden;
-    transform: rotate(45deg);  /* turn the square into a diamond */
     margin: 1rem;
-    transition: transform 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
-
 .board-image-container-home{
     width: 100%;
-}
-
-.board-image-container:hover{
-    transform: rotate(0deg) scale(1.3);
-}
-
-.board-image-container:hover .board-image {
-    transform: rotate(0deg);
+    margin: 0;
 }
 
 .centered-text{

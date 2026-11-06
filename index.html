@@ -5,6 +5,45 @@ title: Home
 <script>
     const page = 'home';
 </script>
+<div class="grid-section wide-grid-item event-announcement">
+  <span class="event-tag">Event announcement</span>
+  <h2>Checkmates Bughouse Tournament!</h2>
+  <ul class="event-facts">
+    <li><strong>What?</strong> Bughouse event!</li>
+    <li><strong>When?</strong> Tuesday Nov 24, 18:00-22:00</li>
+    <li><strong>Where?</strong> CZ122, Tilburg University Campus</li>
+    <li><strong>Who?</strong> You and your friend!</li>
+  </ul>
+  <p>
+    In a few weeks we will be hosting our first Bughouse event. Bughouse is a chess variety in which you have a teammate
+    playing the other color next to you. When you take a piece, you hand it to your partner. Players can spend one move
+    to put a piece their partner gave them on the board, with some restrictions*. Once the game ends on one board, that
+    ends the match.
+  </p>
+  <p>
+    For this event you can sign up as a team of two or as a solo player. If you do a solo signup, you will be paired with
+    another solo signup at the start of the event. If you sign up as a team please have both players fill in the form,
+    this makes administration easier for us. Do note that at least one player per team should be affiliated with
+    Tilburg University.
+  </p>
+  <p>For any questions regarding this event, feel free to contact a board member!</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSehVOB3YYlr6hDVoOz7hy7vOrdN_h6MXpCAy6E_iF9e5wLDHw/viewform?usp=header"
+     target="_blank" rel="noopener noreferrer" class="event-signup-button">Sign up here</a>
+  <p class="event-footnote">
+    *Pawns cannot be placed on rank 1 or 8, nor can they be placed in a position where they can promote the very next
+    turn. Additionally, you are not allowed to give a check with a piece you just put on the board. If you take a piece
+    that was promoted from a pawn, you give your teammate a pawn instead of that piece.
+  </p>
+</div>
+
+<div class="grid-section agenda-grid-item">
+  <section class="agenda-section">
+    <h2>Agenda</h2>
+    <div id="agenda-container"></div>
+      <button onclick="window.location.href='/agenda'" class="view-agenda-button">View Full Agenda</button>
+  </section>
+</div>
+
 <div class="grid-section introduction-grid-item">
       <div>
         <h2>Here to play chess</h2>
@@ -18,13 +57,6 @@ title: Home
 </div>
 
 <div class="grid-section small-grid-item image-grid-item image-4"></div>
-<div class="grid-section agenda-grid-item">
-  <section class="agenda-section">
-    <h2>Agenda</h2>
-    <div id="agenda-container"></div>
-      <button onclick="window.location.href='/agenda'" class="view-agenda-button">View Full Agenda</button>
-  </section>
-</div>
 <div class="grid-section small-grid-item image-grid-item image-2"></div>
 
 

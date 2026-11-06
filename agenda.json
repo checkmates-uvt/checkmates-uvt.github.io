@@ -138,6 +138,13 @@
     "description": "Drop in for a casual game of chess with fellow students. All skill levels are welcome!"
   },
   {
+    "date": "2026-11-24T18:00",
+    "room": "CZ122, on Campus",
+    "title": "Bughouse event!",
+    "description": "Team up with your friend for an evening of bughouse chess! From 18:00 to 22:00. Who? You and your friend!",
+    "color": "#FFCB3B"
+  },
+  {
     "date": "2026-11-25T12:45",
     "room": "Restaurant",
     "title": "Weekly meeting",

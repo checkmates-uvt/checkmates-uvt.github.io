@@ -48,8 +48,13 @@ function renderItems(items, limit) {
     const relativeTime = getRelativeTime(d);
 
 
+    // Optional per-event accent color, e.g. "color": "#FFCB3B" in agenda.json
+    const colorStyle = item.color
+      ? `style="--event-color: ${item.color}; --event-text-color: ${readableTextColor(item.color)};"`
+      : '';
+
     agendaContainer.insertAdjacentHTML('beforeend', `
-      <div class="agenda-item">
+      <div class="agenda-item" ${colorStyle}>
         <div class="agenda-header">
           <h3>${item.title}</h3>
           <div class="agenda-relative-time">${relativeTime}</div>
@@ -67,6 +72,16 @@ function renderItems(items, limit) {
 }
 
 
+
+// Black text on light colors (like gold), white text on dark ones
+function readableTextColor(hex) {
+  const h = hex.replace('#', '');
+  const r = parseInt(h.substring(0, 2), 16);
+  const g = parseInt(h.substring(2, 4), 16);
+  const b = parseInt(h.substring(4, 6), 16);
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+  return brightness > 150 ? '#000' : '#fff';
+}
 
 function getRelativeTime(targetDate) {
   const now = new Date();
